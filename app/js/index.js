@@ -1,7 +1,10 @@
 'use strict';
 
-var ipc = require('ipc');
-var remote = require('remote');
+const globalShortcut = require('electron').globalShortcut;
+const remote = require('electron').remote;
+const ipc = require('electron').ipcRenderer;
+
+
 var Tray = remote.require('tray');
 var Menu = remote.require('menu');
 var path = require('path');
