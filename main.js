@@ -1,10 +1,10 @@
 'use strict';
-
-var app = require('app');
-var BrowserWindow = require('browser-window');
-var globalShortcut = require('global-shortcut');
-var configuration = require('./configuration');
-var ipc = require('ipc');
+const electron = require('electron');
+const app = require('electron').app;
+const BrowserWindow = require('electron').BrowserWindow;
+const remote = require('electron').remote;
+const ipc = require('electron').ipcMain;
+const globalShortcut = require('electron').globalShortcut;
 
 var mainWindow = null;
 var settingsWindow = null;
@@ -21,8 +21,8 @@ app.on('ready', function() {
         width: 368
     });
 
-    mainWindow.loadUrl('file://' + __dirname + '/app/index.html');
-
+    mainWindow.loadURL(`file://${__dirname}/app/index.html`);
+    
     setGlobalShortcuts();
 });
 
